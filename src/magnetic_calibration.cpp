@@ -256,11 +256,35 @@ void MagneticCalibration::generate_data() {
 
 }
 
+void MagneticCalibration::create_data_from_file(string file_name){
+    // Read the file
+    auto file_path=__FILE__;
+    string directory=file_path;
+    directory=directory.substr(0,directory.find_last_of("/"));
+    ifstream file(directory+"/../dataset/"+file_name);
+    if (!file.is_open()) {
+        cerr << "Error: could not open file " << file_name << endl;
+        return;
+    }
 
+    // Read the data
+    string line;
+    while (getline(file, line)) {
+        istringstream iss(line);
+        double x, y, z;
+        if (!(iss >> x >> y >> z)) {
+            cerr << "Error: could not read line " << line << endl;
+            continue;
+        }
+        magnetometer_data_.push_back({x, y, z});
+    }
 
-void MagneticCalibration::regularize_data(){
+    cout << "Read " << magnetometer_data_.size() << " values" << endl;
+}
+
+void MagneticCalibration::regularize_data(int bisect_limit_nb_data,double bisect_limit_width){
     // Regularize the data
-    MagneticPaving magnetic_paving(magnetometer_data_, 30, 1.0);
+    MagneticPaving magnetic_paving(magnetometer_data_, bisect_limit_nb_data, bisect_limit_width);
     magnetic_paving.process_data(magnetometer_data_regularized_);
 
     // Display min max
@@ -544,7 +568,7 @@ vtkSmartPointer<vtkActor> MagneticCalibration::generate_unit_sphere(const string
     return actor;
 }
 
-void MagneticCalibration::view_data(float point_size=1.0,float axis_length=100.){
+void MagneticCalibration::view_data(float point_size,float axis_length){
     vtkSmartPointer<vtkActor> actor_ellipsoid = generate_unit_sphere("Green");
     vtkSmartPointer<vtkActor> actor_regularized = generate_point_cloud(magnetometer_data_regularized_, "Red", point_size);
     vtkSmartPointer<vtkActor> actor_corrected = generate_point_cloud(magnetometer_data_corrected_, "Green",point_size);

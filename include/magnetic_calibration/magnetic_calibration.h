@@ -40,7 +40,9 @@ public:
 
     void generate_data();
 
-    void regularize_data();
+    void create_data_from_file(string file_name);
+
+    void regularize_data(int bisect_limit_nb_data=30,double bisect_limit_width=1.0);
 
     void compute_ellipsoid();
 
@@ -48,7 +50,7 @@ public:
 
     void check_correction();
 
-    void view_data(float point_size,float axis_length);
+    void view_data(float point_size=1.0,float axis_length=100.0);
 
     vtkSmartPointer<vtkActor> generate_point_cloud(std::vector<std::array<double, 3>> &pts_data, const string &color, const double &radius = 0.1);
 

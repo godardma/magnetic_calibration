@@ -10,6 +10,7 @@ Extracted from https://gitlab.ensta-bretagne.fr/lemezoth/voiture2A-ros
 
 ## Git Structure :
 
+* :file_folder: [/dataset](dataset) : **folder containing the input datasets**
 * :file_folder: [/include](include) : **folder containing headers files**
 * :file_folder: [/src](src) : **folder containing headers files**
 * :spiral_notepad: [CMakeLists.txt](CMakeLists.txt)    **CMakeLists to compile**
@@ -52,8 +53,11 @@ An exemple main file can be found [here](src/main.cpp)
 The main steps are :
 * Create an instance of the object MagneticCalibration
 * Fill the field "magnetometer_data_regularized_" :
-    * Fill the field "magnetometer_data_" and regularize the dataset with the function "regularize_data"
-    * Use the function "generate_data" to use the the default dataset
+    * Use the function "generate_data" to use the the default dataset, no need to regularize it
+    * Fill the field "magnetometer_data_" by hand and regularize the dataset
+    * Fill the field "magnetometer_data_" from a file using the function "create_data_from_file" and regularize the dataset
+    
+    The regularization is done by calling the function "regularize_data", arguments are the limit of point in a box and its limit size 
 * Perform the ellipsoid fit with the "compute_ellipsoid" function to get its center and the transformation matrix (noted TR) between the ellipsoid and a sphere
 
 Other useful functions provided are :
