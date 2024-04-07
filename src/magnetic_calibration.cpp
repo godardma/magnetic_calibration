@@ -582,16 +582,3 @@ void MagneticCalibration::view_data(float point_size=1.0,float axis_length=100.)
     renderWindow->Render();
     renderWindowInteractor->Start();  // Start the event loop
 }
-
-int main(int argc, char *argv[]) {
-    MagneticCalibration magnetic_calibration;
-    magnetic_calibration.generate_data();
-    magnetic_calibration.regularize_data();
-    magnetic_calibration.compute_ellipsoid();
-    magnetic_calibration.correct_data();
-    magnetic_calibration.check_correction();
-    magnetic_calibration.view_data(0.3,10.0);
-
-
-    return 0;
-}

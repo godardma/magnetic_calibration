@@ -34,6 +34,7 @@ find_package(VTK 9.0 COMPONENTS
         REQUIRED)
 
 add_executable(mag_calibration
+        src/main.cpp
         src/magnetic_calibration.cpp
         src/magnetic_paving.cpp
 )
