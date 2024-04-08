@@ -11,8 +11,8 @@ C++ package for magnetic calibration
 ## Git Structure :
 
 * :file_folder: [/dataset](dataset) : **folder containing the input datasets**
-* :file_folder: [/include](include) : **folder containing headers files**
-* :file_folder: [/src](src) : **folder containing headers files**
+* :file_folder: [/include](include) : **folder containing header files**
+* :file_folder: [/src](src) : **folder containing source files**
 * :spiral_notepad: [CMakeLists.txt](CMakeLists.txt)    **CMakeLists to compile**
 * :spiral_notepad: [package.xml](package.xml)
 * :spiral_notepad: [README.md](README.md)
