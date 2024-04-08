@@ -1,12 +1,12 @@
 # Magnetic calibration
 
-Extracted from https://gitlab.ensta-bretagne.fr/lemezoth/voiture2A-ros
+C++ package for magnetic calibration
 
 ## Autors :
 
-:teacher: Thomas LE MEZO <thomas.lemezo@ensta-bretagne.org> (Lab-STICC)
+:teacher: Thomas LE MEZO <thomas.lemezo@ensta-bretagne.org> (ENSTA Bretagne, Lab-STICC)
 
-:teacher: Maël GODARD <mael.godard@ensta-bretagne.org> (Lab-STICC)
+:teacher: Maël GODARD <mael.godard@ensta-bretagne.org> (ENSTA Bretagne, Lab-STICC)
 
 ## Git Structure :
 
@@ -68,5 +68,10 @@ Other useful functions provided are :
     * In **red** the regularized data, stored magnetometer_data_regularized
     * In **green** the corrected data, stored magnetometer_data_corrected, and the corresponding sphere
 
+## License :
+This package is under [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.html)
+
+## Credits :
+The credits belong to Thomas LE MEZO (ENSTA Bretagne, Lab-STICC) and Maël GODARD (ENSTA Bretagne Lab-STICC)
 
 
