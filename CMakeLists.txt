@@ -7,8 +7,6 @@ endif()
 
 #set(CMAKE_CXX_STANDARD 20)
 
-### find dependencies
-find_package(ament_cmake REQUIRED)
 
 ## Magnetic calibration
 
@@ -59,5 +57,3 @@ install(TARGETS mag_calibration
         DESTINATION lib/${PROJECT_NAME}
 )
 
-
-ament_package()
