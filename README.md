@@ -68,7 +68,7 @@ Other useful functions provided are :
     * In **red** the regularized data, stored magnetometer_data_regularized
     * In **green** the corrected data, stored magnetometer_data_corrected, and the corresponding sphere
  
-## Notes for 
+## Notes for users
 The package seems to struggle to perform a proper calibration when big values are passed as inputs. We highly suggest to keep the values in the range [-1000,1000] by scaling your inputs if necessary to get a proper result. 
 
 ## License :
